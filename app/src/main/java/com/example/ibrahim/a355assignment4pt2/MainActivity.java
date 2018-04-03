@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    DatabaseHelper helper = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +25,19 @@ public class MainActivity extends AppCompatActivity {
             EditText a = (EditText)findViewById(R.id.TFusername);
             String str = a.getText().toString();
 
-            Intent i = new Intent(MainActivity.this, Display.class);
-            i.putExtra("Username", str);
-            startActivity(i);
+            EditText b = (EditText)findViewById(R.id.TFpassword);
+            String pass = b.getText().toString();
+
+            String password = helper.searchPass(str);
+            if(pass.equals(password)){
+                Intent i = new Intent(MainActivity.this, Display.class);
+                i.putExtra("Username", str);
+                startActivity(i);
+            }
+            else{
+                Toast.makeText(MainActivity.this, "Username and Password don't match!!", Toast.LENGTH_SHORT).show();
+
+            }
         }
         if (v.getId() == R.id.Bsignup)
         {

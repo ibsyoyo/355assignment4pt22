@@ -12,6 +12,10 @@ import android.widget.Toast;
  */
 
 public class SignUp extends Activity {
+
+    DatabaseHelper helper = new DatabaseHelper(this);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,18 @@ public class SignUp extends Activity {
                 //popup msg
 
                 Toast.makeText(SignUp.this, "Passwords don't match!!", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                //insert details in db
+
+                Contact c = new Contact();
+                c.setName(namestr);
+                c.setEmail(emailstr);
+                c.setPass(pass1str);
+                c.setUname(unamestr);
+
+                helper.insertContact(c);
+
             }
 
         }
