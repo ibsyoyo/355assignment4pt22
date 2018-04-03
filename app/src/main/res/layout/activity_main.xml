@@ -7,43 +7,32 @@
     android:orientation="vertical"
     tools:context="com.example.ibrahim.a355assignment4pt2.MainActivity">
 
-    <Button
-        android:id="@+id/Blogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onButtonClick"
-        android:text="Log In" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Username" />
+        android:text="Find Synonym" />
 
     <EditText
         android:id="@+id/TFusername"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password" />
-
-    <EditText
-        android:id="@+id/TFpassword"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPersonName"
+        android:text="Enter Word" />
 
     <Button
-        android:id="@+id/Bsignup"
+        android:id="@+id/Bresults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="Sign Up Here" />
+        android:text="Results" />
+
+    <Button
+        android:id="@+id/Benterval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonTwoClick"
+        android:text="Enter Values" />
 
 </LinearLayout>

@@ -6,51 +6,31 @@ package com.example.ibrahim.a355assignment4pt2;
 
 public class Contact {
    // int id;
-    String name, email, uname, pass;
+    String syn, ant, word;
 
-   /* public void setId(int id){
-        this.id = id;
+    public Contact() {};
+
+    public void setWord(String word){
+        this.word = word;
 
     }
-    public int getId(int id)
+    public String getWord()
     {
-        return this.id;
-
-    } */
-    public void setName(String name){
-        this.name = name;
+        return this.word;
 
     }
-    public String getName()
+    public void setAnt(String ant){
+        this.ant = ant;
+
+    }
+    public String getAnt()
     {
-        return this.name;
+        return this.ant;
 
     }
-    public void setEmail(String email){
-        this.email = email;
+    public void setSyn(String syn){
+        this.syn = syn;
 
     }
-    public String getEmail()
-    {
-        return this.email;
 
-    }
-    public void setUname(String uname){
-        this.uname = uname;
-
-    }
-    public String getUname()
-    {
-        return this.uname;
-
-    }
-    public void setPass(String pass){
-        this.pass = pass;
-
-    }
-    public String getPass()
-    {
-        return this.pass;
-
-    }
 }

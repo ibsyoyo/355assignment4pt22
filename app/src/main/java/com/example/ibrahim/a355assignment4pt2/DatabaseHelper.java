@@ -16,23 +16,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "contacts.db";
     private static final String TABLE_NAME = "contacts";
-    //private static final String COLUMN_ID = "id";
-    private static final String COLUMN_NAME = "contacts.db";
-    private static final String COLUMN_EMAIL = "contacts.db";
-    private static final String COLUMN_UNAME = "uname";
-    private static final String COLUMN_PASS = "pass";
+    private static final String COLUMN_ID = "syn";
+    private static final String COLUMN_NAME = "ant;
+    private static final String COLUMN_EMAIL = "word";
+
 
     SQLiteDatabase db;
 
-    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null auto increment ," +
-            " + name text not null," +
-            " email not null," +
-            " name text not null," +
-            " uname text not null" +
-            " pass text not null):";
+    private static final String TABLE_CREATE = "create table contacts (word text primary key not null ," +
+            " + synonym text not null," +
+            " antonym not null,";
 
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
 
     }
 
@@ -51,6 +48,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        String query = "select * from" + TABLE_NAME; //????
+        Cursor cursor = db.rawQuery(query, null);
+
+        String hold;
+
+        values.put(COLUMN_ID, count);
+
         values.put(COLUMN_NAME, c.getName());
         values.put(COLUMN_EMAIL, c.getEmail());
         values.put(COLUMN_PASS, c.getPass());
@@ -64,8 +69,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String searchPass(String uname){
 
-        db = this.getWritableDatabase();
-        String query = "select uname, pass from " + TABLE_NAME;
+        db = this.getReadableDatabase();
+        String query = "select * from " +TABLE_NAME;
         Cursor cursor = db.rawQuery(query,null);
 
             String a, b;
@@ -74,10 +79,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
             do{
 
-                a = cursor.getString(0);
+                a = cursor.getString(2);
 
                 if (a.equals(uname)){
-                    b = cursor.getString(1);
+                    b = cursor.getString(3);
                     break;
 
                 }
@@ -89,9 +94,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        String query = "DROP TABLE IF EXISTS" + TABLE_NAME;
+        String query = "DROP TABLE IF EXISTS " + TABLE_NAME;
         db.execSQL(query);
         this.onCreate(db);
 

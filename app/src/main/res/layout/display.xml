@@ -8,11 +8,35 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome," />
+        android:text="Results" />
 
-    <TextView
-        android:id="@+id/TVusername"
+    <EditText
+        android:id="@+id/Pairword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/emptyString" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Word" />
+
+    <EditText
+        android:id="@+id/Pairsyn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Synonym" />
+
+    <EditText
+        android:id="@+id/Pairant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Antonym" />
+
+    <Button
+        android:id="@+id/Bbackhome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home" />
 </LinearLayout>
