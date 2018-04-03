@@ -15,7 +15,7 @@ public class Display extends Activity {
         setContentView(R.layout.display);
         String username = getIntent().getStringExtra("Username");
 
-        TextView tv = (TextView)findViewById(R.id.TVusername);
+        TextView tv = (TextView)findViewById(R.id.Pairant);
         tv.setText(username);
     }
 }

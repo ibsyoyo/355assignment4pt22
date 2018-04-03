@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.view.View;
 
 
 /**
@@ -17,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "contacts.db";
     private static final String TABLE_NAME = "contacts";
     private static final String COLUMN_ID = "syn";
-    private static final String COLUMN_NAME = "ant;
+    private static final String COLUMN_NAME = "ant";
     private static final String COLUMN_EMAIL = "word";
 
 
@@ -44,6 +45,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+  //  public void onButtonTwoClick (View v){
+    //    if (view.getId() ==
+    //}
+
     public void insertContact(Contact c){
 
         db = this.getWritableDatabase();
@@ -54,12 +59,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String hold;
 
-        values.put(COLUMN_ID, count);
+        //values.put(COLUMN_ID, count);
 
-        values.put(COLUMN_NAME, c.getName());
-        values.put(COLUMN_EMAIL, c.getEmail());
-        values.put(COLUMN_PASS, c.getPass());
-        values.put(COLUMN_UNAME, c.getUname());
+        values.put(COLUMN_NAME, c.getAnt());
+        values.put(COLUMN_EMAIL, c.getSyn());
+
 
         db.insert(TABLE_NAME, null, values);
 

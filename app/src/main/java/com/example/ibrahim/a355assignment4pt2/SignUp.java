@@ -1,6 +1,7 @@
 package com.example.ibrahim.a355assignment4pt2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -27,35 +28,27 @@ public class SignUp extends Activity {
 
             EditText name = (EditText)findViewById(R.id.TFname);
             EditText email = (EditText)findViewById(R.id.TFemail);
-            EditText pass1 = (EditText)findViewById(R.id.TFpass1);
-            EditText pass2 = (EditText)findViewById(R.id.TFpass2);
-            EditText uname = (EditText)findViewById(R.id.TFuname);
+
+            //EditText uname = (EditText)findViewById(R.id.TFuname);
 
             String namestr = name.getText().toString();
             String emailstr = email.getText().toString();
-            String pass1str = pass1.getText().toString();
-            String pass2str = pass2.getText().toString();
-            String unamestr = uname.getText().toString();
 
-            if (!pass1str.equals(pass2str)){
-                //popup msg
 
-                Toast.makeText(SignUp.this, "Passwords don't match!!", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                //insert details in db
+            Contact c = new Contact();
 
-                Contact c = new Contact();
-                c.setName(namestr);
-                c.setEmail(emailstr);
-                c.setPass(pass1str);
-                c.setUname(unamestr);
 
-                helper.insertContact(c);
+
+                c.setSyn(namestr);
+                c.setAnt(emailstr);
+
+            Intent i = new Intent(SignUp.this, MainActivity.class);
+
+            startActivity(i);
 
             }
 
         }
     }
 
-}
+

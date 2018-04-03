@@ -6,19 +6,11 @@ package com.example.ibrahim.a355assignment4pt2;
 
 public class Contact {
    // int id;
-    String syn, ant, word;
+    private String syn, ant;
 
     public Contact() {};
 
-    public void setWord(String word){
-        this.word = word;
 
-    }
-    public String getWord()
-    {
-        return this.word;
-
-    }
     public void setAnt(String ant){
         this.ant = ant;
 
@@ -31,6 +23,9 @@ public class Contact {
     public void setSyn(String syn){
         this.syn = syn;
 
+    }
+    public String getSyn(){
+        return this.syn;
     }
 
 }

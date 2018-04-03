@@ -15,17 +15,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        helper = new DatabaseHelper(this);
     }
 
 
     public void onButtonClick(View v)
     {
-        if (v.getId() == R.id.Blogin)
+        if (v.getId() == R.id.Benterval)
         {
             EditText a = (EditText)findViewById(R.id.TFusername);
             String str = a.getText().toString();
 
-            EditText b = (EditText)findViewById(R.id.TFpassword);
+            EditText b = (EditText)findViewById(R.id.TFemail);
             String pass = b.getText().toString();
 
             String password = helper.searchPass(str);
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-        if (v.getId() == R.id.Bsignup)
+        if (v.getId() == R.id.Bresults)
         {
             Intent i = new Intent(MainActivity.this, SignUp.class);
             startActivity(i);
